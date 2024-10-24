@@ -1,0 +1,30 @@
+To test:
+function to auto fill and auto run tasks in two thread
+
+
+
+- two thread
+-- always same running time
+
+
+--h2 in-mermory
+--multer threading keep writing these tables
+
+--see tables
+
+-sysn -> single thread can run
+
+thread 1 wait thread 2
+thread 2 wait thread 1
+
+
+dead lock
+-> 
+
+two task two thread
+
+
+transaction run and rowback
+see table WORKFLOW/ACT_HI_ACTINST
+
+first  multertjeadimg/no need fill

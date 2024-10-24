@@ -1,0 +1,10 @@
+
+Years of Experience? (Must be a whole number)
+Before sleep ExampleTaskListenerUserTaskA [Process=2673][event=create][TaskListener=com.example.ExampleTaskListenerUserTaskA@1fd225c7][ActivityId=personalizedIntro][TaskAssignee=null][TaskForm=null]
+After sleep ExampleTaskListenerUserTaskB - [Process=2673][event=create][TaskListener=com.example.ExampleTaskListenerUserTaskB@2f0f2160][ActivityId=personalizedIntro][TaskAssignee=null][TaskForm=null]
+After sleep ExampleTaskListenerUserTaskB - [Process=2673][event=create][TaskListener=com.example.ExampleTaskListenerUserTaskB@2f0f2160][ActivityId=personalizedIntro][TaskAssignee=null][TaskForm=null]
+Exception is caughtorg.activiti.engine.ActivitiOptimisticLockingException: ProcessInstance[2673] was updated by another transaction concurrentlyll]
+After sleep ExampleTaskListenerUserTaskA [Process=2673][event=create][TaskListener=com.example.ExampleTaskListenerUserTaskA@1fd225c7][ActivityId=personalizedIntro][TaskAssignee=null][TaskForm=null]
+Before sleep ExampleTaskListenerUserTaskB - [Process=2673][event=create][TaskListener=com.example.ExampleTaskListenerUserTaskB@2f0f2160][ActivityId=personalizedIntro][TaskAssignee=null][TaskForm=null]
+After sleep ExampleTaskListenerUserTaskB - [Process=2673][event=create][TaskListener=com.example.ExampleTaskListenerUserTaskB@2f0f2160][ActivityId=personalizedIntro][TaskAssignee=null][TaskForm=null]
+Exception is caughtorg.activiti.engine.ActivitiOptimisticLockingException: ProcessInstance[2673] was updated by another transaction concurrently

@@ -5,7 +5,6 @@ import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration;
 import org.activiti.engine.repository.Deployment;
-import org.activiti.engine.repository.ProcessDefinition;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -27,18 +26,20 @@ public class Multithread {
                 ProcessEngine processEngine = cfg.buildProcessEngine();
 
                 RepositoryService repositoryService = processEngine.getRepositoryService();
-                repositoryService.createDeployment().addClasspathResource("onboarding.bpmn20.xml").deploy();
+                Deployment deployment = repositoryService.createDeployment()
+                                .addClasspathResource("onboarding.bpmn20.xml").deploy();
 
                 ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-                // for (int i = 0; i < 2; i++) {
-                // MultithreadNew object = new MultithreadNew(processEngine);
+                // Single thread x 3
+                // for (int i = 0; i < 1; i++) {
+                // MultithreadNew object = new MultithreadNew(processEngine, deployment);
                 // object.run();
                 // }
 
                 // Submit three onboarding tasks to be executed in parallel
-                for (int i = 0; i < 3; i++) {
-                        executorService.submit(new MultithreadNew(processEngine));
+                for (int i = 0; i < 1000; i++) {
+                        executorService.submit(new MultithreadNew(processEngine, deployment));
                 }
                 executorService.shutdown();
         }

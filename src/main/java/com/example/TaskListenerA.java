@@ -18,12 +18,11 @@ public class TaskListenerA implements TaskListener {
     @Override
     public void notify(DelegateTask delegateTask) {
         DelegateExecution execution = delegateTask.getExecution();
-        System.out.println("\u001B[32m" + java.time.LocalDate.now() + " " + java.time.LocalTime.now()
-                + " [TaskListenerA] [Process="
+        System.out.println(java.time.LocalDate.now() + " " + java.time.LocalTime.now()
+                + " \033[0;1m\u001B[34m[TaskListenerA]\u001B[0m [Process="
                 + execution.getProcessInstanceId() +
-                "][event=" + delegateTask.getEventName() +
-                "][TaskListener=" + this +
-                "][ActivityId=" + execution.getCurrentActivityId() +
+                "]\033[0;1m\u001B[34m[event=" + delegateTask.getEventName() +
+                "\u001B[0m][ActivityId=" + execution.getCurrentActivityId() +
                 "][TaskAssignee=" + delegateTask.getAssignee() +
                 "][TaskForm=" + delegateTask.getFormKey() + "]" + "\u001B[0m");
 

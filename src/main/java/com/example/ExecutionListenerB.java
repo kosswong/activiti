@@ -2,7 +2,6 @@ package com.example;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.ExecutionListener;
-import org.joda.time.format.DateTimeFormatter;
 
 public class ExecutionListenerB implements ExecutionListener {
 

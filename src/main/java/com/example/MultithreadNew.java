@@ -16,6 +16,7 @@ import org.activiti.engine.task.Task;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 public class MultithreadNew implements Runnable {
@@ -29,6 +30,7 @@ public class MultithreadNew implements Runnable {
 
         @Override
         public void run() {
+                Random r = new Random();
                 RepositoryService repositoryService = processEngine.getRepositoryService();
                 ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
                                 .deploymentId(deployment.getId()).singleResult();
@@ -87,7 +89,20 @@ public class MultithreadNew implements Runnable {
                                 System.out.println(task.getId() + "-" + lt);
 
                                 try {
-                                        taskService.complete(task.getId(), variables);
+                                        // Randomly complete the task
+                                        if (Integer.valueOf(processInstance.getProcessInstanceId()) % 2 == 1
+                                                        || 1 == 1) {
+                                                taskService.complete(task.getId(), variables);
+                                        } else {
+                                                System.out.println("" + java.time.LocalDate.now() + " " +
+                                                                java.time.LocalTime.now() +
+                                                                "\u001B[31m" + "Not to complete task" + "\u001B[0m"
+                                                                + " \033[0;1m\u001B[33m[MultithreadNew]\u001B[0m [Process="
+                                                                + processInstance.getProcessInstanceId()
+                                                                + "][Task Name="
+                                                                + task.getName() + ", Task Id=" + task.getId() + "]");
+
+                                        }
                                 } catch (Exception e) {
                                         // Throwing an exception
                                         System.out.println("\u001B[31m" + "Exception is caught: " + e + "\u001B[0m");

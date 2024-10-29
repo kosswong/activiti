@@ -43,15 +43,15 @@ public class Multithread {
 
                 // Multi thread
                 Random r = new Random();
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 2; i++) {
                         // Add ramdom delay
-                        try {
-                                long sleepTime = (long) (r.nextInt(100) * 1);
-                                Thread.sleep(sleepTime);
-                                System.out.println("[Multithread] Sleep for " + sleepTime + " sec.");
-                        } catch (InterruptedException e) {
-                                e.printStackTrace();
-                        }
+                        // try {
+                        // long sleepTime = (long) (r.nextInt(100) * 1);
+                        // Thread.sleep(sleepTime);
+                        // System.out.println("[Multithread] Sleep for " + sleepTime + " sec.");
+                        // } catch (InterruptedException e) {
+                        // e.printStackTrace();
+                        // }
                         executorService.submit(new MultithreadNew(processEngine, deployment));
                 }
                 executorService.shutdown();

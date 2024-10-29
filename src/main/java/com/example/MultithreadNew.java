@@ -60,11 +60,11 @@ public class MultithreadNew implements Runnable {
 
                 while (processInstance != null && !processInstance.isEnded()) {
 
-                        // List<Task> tasks =
-                        // taskService.createTaskQuery().taskCandidateGroup("managers").list();
+                        List<Task> tasks = taskService.createTaskQuery().taskCandidateGroup("managers").list();
 
-                        List<Task> tasks = taskService.createTaskQuery().processInstanceId(processInstance.getId())
-                                        .list();
+                        // List<Task> tasks =
+                        // taskService.createTaskQuery().processInstanceId(processInstance.getId())
+                        // .list();
                         System.out.println(java.time.LocalDate.now() + " " +
                                         java.time.LocalTime.now()
                                         + " \033[0;1m\u001B[33m[MultithreadNew]\u001B[0m Active outstanding tasks: ["
